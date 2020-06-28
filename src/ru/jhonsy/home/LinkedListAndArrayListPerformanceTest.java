@@ -23,13 +23,17 @@ public class LinkedListAndArrayListPerformanceTest {
         //Производительность вставки в конец списка
 
         long startTime = System.currentTimeMillis();
-        fillListWithRandomValues(linkedList, random);
+        for (int i = 0; i < LIST_SIZE; i++) {
+            linkedList.add(random.nextInt(Integer.MAX_VALUE));
+        }
         System.out.println("Adding " + LIST_SIZE + " random values to LinkedList took: "
                 + ((double) (System.currentTimeMillis() - startTime)) + " ms");
 
 
         startTime = System.currentTimeMillis();
-        fillListWithRandomValues(arrayList, random);
+        for (int i = 0; i < LIST_SIZE; i++) {
+            arrayList.add(random.nextInt(Integer.MAX_VALUE));
+        }
         System.out.println("Adding " + LIST_SIZE + " random values to ArrayList took: "
                 + ((double) (System.currentTimeMillis() - startTime)) + " ms");
 
@@ -73,11 +77,5 @@ public class LinkedListAndArrayListPerformanceTest {
 
         System.out.println("==============================================================");
 
-    }
-
-    private static void fillListWithRandomValues(List<Integer> list, Random random){
-        for (int i = 0; i < LIST_SIZE; i++) {
-            list.add(random.nextInt(Integer.MAX_VALUE));
-        }
     }
 }
